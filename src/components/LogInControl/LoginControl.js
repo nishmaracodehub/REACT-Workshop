@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import Greeting from "./Greeting";
 import LogIn from "./LogIn";
 import LogOut from "./LogOut";
+import Mailbox from "../Mailbox/Mailbox";
 
 class LoginControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      messages: ["hi", "bye"]
     };
     this.handleClickLogOut = this.handleClickLogOut.bind(this);
     this.handleClickLogIn = this.handleClickLogIn.bind(this);
@@ -25,7 +27,7 @@ class LoginControl extends Component {
     }));
   }
   render() {
-    let { isLoggedIn } = this.state;
+    let { isLoggedIn, messages } = this.state;
     let button;
     if (isLoggedIn) {
       button = <LogOut onClick={this.handleClickLogOut} />;
@@ -35,6 +37,7 @@ class LoginControl extends Component {
     return (
       <div>
         <Greeting isLoggedIn={isLoggedIn} />
+        {isLoggedIn && <Mailbox messages={messages} />}
         {button}
       </div>
     );
