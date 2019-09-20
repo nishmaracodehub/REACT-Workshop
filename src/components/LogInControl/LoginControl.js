@@ -37,7 +37,7 @@ class LoginControl extends Component {
 
   handleChange(event) {
     this.setState({
-      name: event.target.value
+      name: event.target.value.toUpperCase()
     });
   }
 
