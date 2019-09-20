@@ -2,13 +2,10 @@ import React from "react";
 
 export default function Mailbox(props) {
   let unReadMessages = props.messages;
+  if (!unReadMessages) return null;
   return (
     <div>
-      {unReadMessages.length > 0 && (
-        <h1>
-          You have {unReadMessages.length} unread messages in your Mailbox
-        </h1>
-      )}
+      <h2>You have {unReadMessages.length} unread messages in your Mailbox</h2>
     </div>
   );
 }

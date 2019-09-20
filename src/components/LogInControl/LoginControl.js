@@ -28,12 +28,11 @@ class LoginControl extends Component {
   }
   render() {
     let { isLoggedIn, messages } = this.state;
-    let button;
-    if (isLoggedIn) {
-      button = <LogOut onClick={this.handleClickLogOut} />;
-    } else {
-      button = <LogIn onClick={this.handleClickLogIn} />;
-    }
+    let button = isLoggedIn ? (
+      <LogOut onClick={this.handleClickLogOut} />
+    ) : (
+      <LogIn onClick={this.handleClickLogIn} />
+    );
     return (
       <div>
         <Greeting isLoggedIn={isLoggedIn} />
